@@ -1,14 +1,17 @@
 # HiFragmentEasyBundle
 一个可使用注解快速构建Bundle和注入Bundel的库（仅限于Fragment）
 
-##怎么注入Bundle
+## 怎么注入Bundle
 ### 1.使用@ExtraModule标识Fragment
+
 ````
 @ExtraModule() //标识这是注入和构建Bundle的模块
 public class DemoFragment extends Fragment {
 }
 ````
+
 ### 2.使用@Extra来标识这是要注入Bundle的属性，有3种方式
+
 ````
  	@Extra() //方式一，如果要注入的属性是私有属性的，就必须在这个类内提供 >= protected属性的方法，如setName()
     private String mName;
@@ -28,6 +31,7 @@ public class DemoFragment extends Fragment {
         this.mName = name;
     }
 ````
+
 ### 3.使用EasyExtraInjector.inject()给Fragment注入Bundle
 ````
 	@Override
@@ -38,7 +42,8 @@ public class DemoFragment extends Fragment {
 ````
 
 
-##怎么快速构建Bundle
+## 怎么快速构建Bundle
+
 1.每一个用@ExtraModule标识的Fragment都会自动生成以模块类名+Exta命名的类，我们可以使用这个类来快速构建Bundle，
 而这个Bundle里面key就是用@Extra标识属性的属性名，下面就是自动生成的代码
 
